@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Task</title>
+        <link rel="stylesheet" type="text/css" href="/css/crud.css">
+        <script src="https://kit.fontawesome.com/91e4a42abb.js" crossorigin="anonymous"></script>
+    </head>
+    <body>
+       <!--top/head-->
+       <div class = "top">
+           <h1>FORM</h1>
+       </div>
+       <!--body-->
+       <div>
+       <div id="part1" class="body">
+           <form method="POST" action="/create-crud">
+               <label>Name:</label>
+               <input type="text" name="name" placeholder="Type here..">
+               <br>
+               <br>
+               <br>
+               
+               <label>Email-id:</label>
+               <input type="text" name="email" placeholder="Type here..">
+               <br>
+               <br>
+               <br>
+               
+               <label>Phone-number:</label>
+               <input type="number" name="phoneno" placeholder="Type here..">
+               <br>
+               <br>
+               <br>
+               
+               <label>Date-of-birth:</label>
+               <input type="date" name="dateofbirth" placeholder="Type here..">
+               <br>
+               <br>
+               <br>
+               
+               <label>Pin-code:</label>
+               <input type="number" name="pincode" placeholder="Type here..">
+               <br>
+               <br>
+               <div id="butn">
+                <button class="btn button1" type="submit" ></i> Save</button>
+             </div>
+               <br>
+               <br>
+               
+           </form>
+       </div>
+
+
+       <div id="part2"class="display">
+           <h1>Information</h1>
+           <% for(let i of CrudList){ %>
+            <% if(i.status =="display"){ %>
+            <div id="list">
+       <div>
+           <h3><%= i.name %></h3>
+       </div>
+       <div>
+           <p>Email: &nbsp;<%= i.email %></p>
+           <p>Phone:&nbsp; <%= i.phoneno %></p>
+           <p>DOB:&nbsp; <%= i.dateofbirth %></p>
+           <p>PIN:&nbsp; <%= i.pincode %></p>
+       </div>
+       <p>  <a href="/delete-crud/?id=<%= i._id %>" class="red" style="color: red;"><i style="font-size: 16px;" class="far fa-times-circle" ></i></a>&nbsp&nbsp&nbsp</p>
+    </div>
+    <% } %> 
+       <% } %>
+
+       </div>
+
+    </div>
+    </body>
+</html>
